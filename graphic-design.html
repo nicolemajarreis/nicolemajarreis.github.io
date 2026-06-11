@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graphic Design | Nicole Majarreis</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <nav>
+    <h2>Nicole Majarreis</h2>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="index.html#portfolio">Portfolio</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<section class="carousel-section dark-carousel">
+  <h2>Graphic Design Highlights</h2>
+  <p>Branding, social media designs, posters, and visual communication projects.</p>
+
+  <div class="carousel-3d">
+    <button class="carousel-btn prev">&#8592;</button>
+
+    <div class="carousel-stage">
+      <img src="assets/graphic-design/gallery-1.png" class="active">
+      <img src="assets/graphic-design/gallery-2.png">
+      <img src="assets/graphic-design/gallery-3.png">
+      <img src="assets/graphic-design/gallery-4.png">
+      <img src="assets/graphic-design/gallery-5.png">
+    </div>
+
+    <button class="carousel-btn next">&#8594;</button>
+  </div>
+</section>
+
+<section class="insta-gallery-section">
+  <h2>Illustration Gallery</h2>
+  <p>Click any artwork to view details.</p>
+
+  <div class="insta-gallery">
+    <img src="assets/illustrations/gallery-1.png" alt="Classical Sketch"
+      data-title="Classical Sketch"
+      data-caption="A graphite-style study focused on facial structure, shadow, and form."
+      data-tags="#art #sketch #graphite #portrait #traditionalart">
+
+    <img src="assets/illustrations/gallery-2.png" alt="Character Portrait"
+      data-title="Character Portrait"
+      data-caption="A detailed character sketch exploring expression, line texture, and mood."
+      data-tags="#characterart #sketch #illustration #drawing">
+
+    <img src="assets/illustrations/gallery-3.png" alt="Digital Poster Art"
+      data-title="Digital Poster Art"
+      data-caption="A digital illustration created for a themed visual project."
+      data-tags="#digitalart #posterart #illustration #creativework">
+
+    <img src="assets/illustrations/gallery-4.png" alt="Cultural Artwork"
+      data-title="Cultural Artwork"
+      data-caption="An expressive artwork inspired by cultural movement and visual storytelling."
+      data-tags="#artwork #culture #painting #visualstorytelling">
+
+    <img src="assets/illustrations/gallery-5.png" alt="Sketch Study"
+      data-title="Sketch Study"
+      data-caption="A hand-drawn study using loose lines, expressive shading, and structure."
+      data-tags="#sketchbook #drawing #study #traditionalart">
+
+    <img src="assets/illustrations/gallery-6.png" alt="Dark Concept Art"
+      data-title="Dark Concept Art"
+      data-caption="A surreal visual piece using contrast, red tones, and dramatic composition."
+      data-tags="#conceptart #darkart #surrealart #digitalillustration">
+  </div>
+</section>
+
+<div class="ig-modal" id="igModal">
+  <button class="ig-close">&times;</button>
+  <button class="ig-nav ig-prev">&#10094;</button>
+  <button class="ig-nav ig-next">&#10095;</button>
+
+  <div class="ig-post">
+    <div class="ig-image-wrap">
+      <img id="igModalImg" src="" alt="">
+    </div>
+
+    <div class="ig-details">
+      <div class="ig-header">
+        <img src="assets/images/profile.png" alt="Nicole Majarreis">
+        <div>
+          <h4>Nicole Majarreis</h4>
+          <span>Illustration Portfolio</span>
+        </div>
+      </div>
+
+      <div class="ig-caption">
+        <h3 id="igTitle"></h3>
+        <p id="igCaption"></p>
+        <p class="ig-tags" id="igTags"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="contact">
+  <h2>Let's Connect</h2>
+  <p>Interested in my work? Feel free to view more or contact me.</p>
+
+  <div class="contact-links">
+    <a href="YOUR_PORTFOLIO_LINK" target="_blank">Portfolio</a>
+    <a href="YOUR_INSTAGRAM_LINK" target="_blank">Instagram</a>
+    <a href="YOUR_FACEBOOK_LINK" target="_blank">Facebook</a>
+    <a href="YOUR_LINKEDIN_LINK" target="_blank">LinkedIn</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Nicole Majarreis. All Rights Reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
