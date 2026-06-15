@@ -3,142 +3,302 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Illustrations | Nicole Majarreis</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Videos | Nicole Majarreis</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #050505;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .video-page {
+      min-height: 100vh;
+      padding: 30px 5%;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      transition: background-image 0.5s ease;
+    }
+
+    .video-page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.4), rgba(0,0,0,0.85));
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .home-btn {
+      display: inline-block;
+      padding: 10px 18px;
+      background: rgba(255,255,255,0.15);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      margin-bottom: 90px;
+      backdrop-filter: blur(8px);
+    }
+
+    .featured {
+      max-width: 520px;
+      margin-bottom: 90px;
+    }
+
+    .featured h1 {
+      font-size: clamp(38px, 6vw, 78px);
+      line-height: 0.9;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+    }
+
+    .featured p {
+      color: #ddd;
+      margin-bottom: 22px;
+      line-height: 1.6;
+    }
+
+    .play-btn {
+      border: none;
+      background: white;
+      color: black;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s ease;
+    }
+
+    .play-btn:hover {
+      transform: scale(1.05);
+      background: #e6e6e6;
+    }
+
+    .video-row h2 {
+      margin-bottom: 18px;
+      font-size: 24px;
+    }
+
+    .video-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .video-card {
+      cursor: pointer;
+      transition: 0.35s ease;
+    }
+
+    .video-card:hover {
+      transform: scale(1.08);
+    }
+
+    .video-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .video-card h3 {
+      margin-top: 10px;
+      font-size: 15px;
+    }
+
+    .video-card p {
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    .video-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .video-modal.active {
+      display: flex;
+    }
+
+    .modal-box {
+      width: min(1000px, 95vw);
+      position: relative;
+    }
+
+    .modal-box video {
+      width: 100%;
+      border-radius: 14px;
+      background: black;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: -50px;
+      right: 0;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 38px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      .video-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .featured {
+        margin-bottom: 60px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .video-list {
+        grid-template-columns: 1fr;
+      }
+
+      .video-card img {
+        height: 210px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<header>
-  <nav>
-    <h2>Nicole Majarreis</h2>
-    <div>
-      <a href="index.html">Home</a>
-      <a href="index.html#portfolio">Portfolio</a>
-      <a href="index.html#contact">Contact</a>
+  <main class="video-page" id="videoPage">
+
+    <div class="content">
+
+      <a href="index.html" class="home-btn">⌂ Home</a>
+
+      <section class="featured">
+        <h1 id="videoTitle">Dibuho</h1>
+        <p id="videoDesc">
+          Short animation was nominated for Best Poetic Short at the ASEAN UniFest SDG Short Film Competition 2025 in Malaysia.
+        </p>
+        <button class="play-btn" onclick="openVideo()">▶ Play Video</button>
+      </section>
+
+      <section class="video-row">
+        <h2>Video Projects</h2>
+
+        <div class="video-list">
+
+          <div class="video-card" onclick="selectVideo(0)">
+            <img src="assets/videos/video1-cover.png" alt="Video 1">
+            <h3>Dibuho</h3>
+            <p>Creative Edit</p>
+          </div>
+
+          <div class="video-card" onclick="selectVideo(1)">
+            <img src="assets/videos/video2-cover.png" alt="Video 2">
+            <h3>Video Project Two</h3>
+            <p>Social Media Reel</p>
+          </div>
+
+          <div class="video-card" onclick="selectVideo(2)">
+            <img src="assets/videos/video3-cover.png" alt="Video 3">
+            <h3>Video Project Three</h3>
+            <p>Promotional Video</p>
+          </div>
+
+          <div class="video-card" onclick="selectVideo(3)">
+            <img src="assets/videos/video4-cover.png" alt="Video 4">
+            <h3>Video Project Four</h3>
+            <p>Short Form Edit</p>
+          </div>
+
+        </div>
+      </section>
+
     </div>
-  </nav>
-</header>
+  </main>
 
-<section class="carousel-section dark-carousel">
-  <h2>Davao Reef Folio Portraits</h2>
-  <p>A portrait collection inspired by marine life, reef colors, and creative character styling.</p>
-
-  <div class="carousel-3d">
-    <button class="carousel-btn prev">&#8592;</button>
-
-    <div class="carousel-stage">
-      <img src="assets/illustrations/gallery-1.png" class="active">
-      <img src="assets/illustrations/gallery-2.png">
-      <img src="assets/illustrations/gallery-3.png">
-      <img src="assets/illustrations/gallery-4.png">
-      <img src="assets/illustrations/gallery-5.png">
-    </div>
-
-    <button class="carousel-btn next">&#8594;</button>
-  </div>
-
-
-<section class="running-gallery">
-  <h2>Illustration Gallery</h2>
-
-  <div class="marquee-row">
-    <div class="marquee-track left">
-      <img src="assets/illustrations/1.png" alt="1">
-      <img src="assets/illustrations/2.png" alt="2">
-      <img src="assets/illustrations/3.png" alt="3">
-      <img src="assets/illustrations/4.png" alt="4">
-      <img src="assets/illustrations/5.png" alt="5">
-      <img src="assets/illustrations/6.png" alt="6">
-
-      <img src="assets/illustrations/1.png" alt="1">
-      <img src="assets/illustrations/2.png" alt="2">
-      <img src="assets/illustrations/3.png" alt="3">
-      <img src="assets/illustrations/4.png" alt="4">
-      <img src="assets/illustrations/5.png" alt="5">
-      <img src="assets/illustrations/6.png" alt="6">
-    </div>
-  </div>
-
-  <div class="marquee-row">
-    <div class="marquee-track right">
-      <img src="assets/illustrations/7.png" alt="7">
-      <img src="assets/illustrations/8.png" alt="8">
-      <img src="assets/illustrations/9.png" alt="9">
-      <img src="assets/illustrations/10.png" alt="10">
-      <img src="assets/illustrations/11.png" alt="11">
-      <img src="assets/illustrations/12.png" alt="12">
-
-      <img src="assets/illustrations/7.png" alt="7">
-      <img src="assets/illustrations/8.png" alt="8">
-      <img src="assets/illustrations/9.png" alt="9">
-      <img src="assets/illustrations/10.png" alt="10">
-      <img src="assets/illustrations/11.png" alt="11">
-      <img src="assets/illustrations/12.png" alt="12">
+  <div class="video-modal" id="videoModal">
+    <div class="modal-box">
+      <button class="close-btn" onclick="closeVideo()">×</button>
+      <video id="mainVideo" controls></video>
     </div>
   </div>
-</section>
 
+  <script>
+    const videos = [
+      {
+        title: "Dibuho",
+        desc: "Short animation was nominated for Best Poetic Short at the ASEAN UniFest SDG Short Film Competition 2025 in Malaysia.",
+        cover: "assets/videos/video1-cover.png",
+        file: "assets/videos/video1.mp4"
+      },
+      {
+        title: "Video Project",
+        desc: "A short-form social media reel created with clean cuts, motion, and engaging pacing.",
+        cover: "assets/videos/video2-cover.png",
+        file: "assets/videos/video2.mp4"
+      },
+      {
+        title: "TukTok",
+        desc: "An Official Entry to the 2nd DavNor Short Film Festival 2025.",
+        cover: "assets/videos/video3-cover.png",
+        file: "assets/videos/video3.mp4"
+      },
+      {
+        title: "Maguayan Video Project",
+        desc: "A promotional video designed for brand awareness, content marketing, and visual presentation.",
+        cover: "assets/videos/video4-cover.png",
+        file: "assets/videos/video4.mp4"
+      }
+    ];
 
-<section class="stacked-projects">
-  <h2>Other Illustration Projects</h2>
-  <p>Selected creative projects and visual studies.</p>
+    let selectedVideo = 0;
 
-  <div class="stacked-carousel">
-    <button class="stack-btn stack-prev">&#8592;</button>
+    const videoPage = document.getElementById("videoPage");
+    const videoTitle = document.getElementById("videoTitle");
+    const videoDesc = document.getElementById("videoDesc");
+    const videoModal = document.getElementById("videoModal");
+    const mainVideo = document.getElementById("mainVideo");
 
-    <div class="stack-card">
-      <img src="assets/illustrations/project-1.png" alt="Project 1">
-    </div>
+    function selectVideo(index) {
+      selectedVideo = index;
+      videoTitle.textContent = videos[index].title;
+      videoDesc.textContent = videos[index].desc;
+      videoPage.style.backgroundImage = `url('${videos[index].cover}')`;
+    }
 
-    <div class="stack-card">
-      <img src="assets/illustrations/project-2.png" alt="Project 2">
-    </div>
+    function openVideo() {
+      mainVideo.src = videos[selectedVideo].file;
+      videoModal.classList.add("active");
+      mainVideo.play();
+    }
 
-    <div class="stack-card">
-      <img src="assets/illustrations/project-3.png" alt="Project 3">
-    </div>
+    function closeVideo() {
+      videoModal.classList.remove("active");
+      mainVideo.pause();
+      mainVideo.src = "";
+    }
 
-    <div class="stack-card">
-      <img src="assets/illustrations/project-4.png" alt="Project 4">
-    </div>
-
-    <div class="stack-card">
-      <img src="assets/illustrations/project-5.png" alt="Project 5">
-    </div>
-
-    <div class="stack-card">
-      <img src="assets/illustrations/project-6.png" alt="Project 6">
-    </div>
-
-    <div class="stack-card">
-      <img src="assets/illustrations/project-7.png" alt="Project 7">
-    </div>
-
-    <div class="stack-card">
-      <img src="assets/illustrations/project-8.png" alt="Project 8">
-    </div>
-
-    <button class="stack-btn stack-next">&#8594;</button>
-  </div>
-</section>  
-
-<section class="contact">
-  <h2>Let's Connect</h2>
-  <p>Interested in my work? Feel free to view more or contact me.</p>
-
-  <div class="contact-links">
-    <a href="YOUR_PORTFOLIO_LINK" target="_blank">Portfolio</a>
-    <a href="YOUR_INSTAGRAM_LINK" target="_blank">Instagram</a>
-    <a href="YOUR_FACEBOOK_LINK" target="_blank">Facebook</a>
-    <a href="YOUR_LINKEDIN_LINK" target="_blank">LinkedIn</a>
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 Nicole Majarreis. All Rights Reserved.</p>
-</footer>
-
-<script src="script.js"></script>
+    selectVideo(0);
+  </script>
 
 </body>
 </html>
