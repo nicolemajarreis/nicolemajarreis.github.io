@@ -49,7 +49,7 @@ nav a:hover {
 
 /* HERO */
 .hero {
-  min-height: 90vh;
+  min-height: 120vh;
   padding: 80px 8%;
   display: grid;
   grid-template-columns: 1.2fr 1fr;
