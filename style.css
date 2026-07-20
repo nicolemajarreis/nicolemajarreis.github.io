@@ -1618,3 +1618,36 @@ right: 5%;
     flex-direction: column;
   }
 }
+
+
+
+/* =========================================================
+   WEBSITES HERO SECTION
+   ========================================================= */
+
+.websites-hero-image-wrap {
+  width: min(1050px, 100%);
+  margin: 70px auto 0;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.websites-hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  .websites-hero {
+    padding: 65px 8% 0;
+  }
+
+  .websites-hero h1 {
+    font-size: 38px;
+  }
+
+  .websites-hero-image-wrap {
+    margin-top: 40px;
+  }
+}
